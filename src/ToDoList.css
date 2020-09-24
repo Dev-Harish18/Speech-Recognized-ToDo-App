@@ -1,0 +1,97 @@
+.ToDoList {
+  border: 2px solid #02f29b;
+  box-shadow: 0 0 30px #02f29b;
+  background: #0f1719;
+  color: white;
+  min-width: 50vw;
+  border-radius: 1rem;
+  margin: 2rem auto;
+}
+.ToDoList .btn-sm-primary {
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  font-size: 1.2rem;
+}
+#name {
+  border: none;
+  outline: none;
+  position: relative;
+}
+.ToDoList form #name,
+.ToDoList form button:not(.tick):not(.trash) {
+  background-color: #1a2224;
+  color: #02f29b;
+  padding: 1rem;
+  width: 100%;
+  transition: all 0.5s ease;
+  height: 3.5rem;
+}
+
+.ToDoList .btn.btn-sm-primary:not(.tick):not(.trash):hover,
+.ToDoList .btn.btn-sm-primary:not(.tick):not(.trash):focus {
+  background-color: #02f29b;
+  color: #1a2224;
+}
+
+.ToDoList h1 {
+  color: #02f29b;
+}
+
+#name:focus {
+  border: 1px solid #02f29b;
+}
+
+#filter {
+  display: block;
+  appearance: button;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  border: 2px solid #02f29b;
+  width: 150px;
+  height: 100%;
+  outline: none;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: #1a2224;
+  color: #02f29b;
+  border-radius: 5px;
+}
+
+.select-container {
+  position: relative;
+  overflow: hidden;
+  height: 3.5rem;
+  font-size: 1rem;
+}
+
+.filter-container {
+  background-color: #02f29b;
+  color: #0f1719;
+  font-weight: 650;
+  border-radius: 5px;
+  transition: background-color 0.6s ease;
+}
+.filter-container:hover {
+  background-color: #0f1719;
+  color: #02f29b;
+  border: 3px solid #02f29b;
+}
+/* .messages,
+.errors {
+  width: 50vw;
+} */
+
+.listen {
+  animation: blink 0.8s linear infinite alternate;
+}
+@keyframes blink {
+  0% {
+    background-color: #1a2224;
+    color: #02f29b;
+  }
+  100% {
+    background-color: #02f29b;
+    color: #1a2224;
+  }
+}

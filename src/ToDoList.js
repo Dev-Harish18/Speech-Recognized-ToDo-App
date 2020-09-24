@@ -98,6 +98,9 @@ class ToDoList extends Component {
         break;
       case "all":
         list = this.state.items;
+        break;
+      default:
+        list = [];
     }
     return list;
   };

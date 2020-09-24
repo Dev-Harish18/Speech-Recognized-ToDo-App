@@ -3,9 +3,9 @@ import "./ToDoItem.css";
 //import gsap from "gsap";
 
 class ToDoItem extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <div

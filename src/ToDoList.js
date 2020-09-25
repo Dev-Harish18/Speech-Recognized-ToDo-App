@@ -105,6 +105,9 @@ class ToDoList extends Component {
       default:
         list = [];
     }
+    if (!list) {
+      this.setState({ error: `This list is Empty` });
+    }
     return list;
   };
 

@@ -228,7 +228,6 @@ class ToDoList extends Component {
                 </button>
                 <input
                   name="name"
-                  id="text-input"
                   className="col-8 col-sm-9 col-lg-10 col-xl-10"
                   placeholder="Enter a ToDo"
                   onChange={this.handleChange}

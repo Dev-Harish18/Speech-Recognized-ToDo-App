@@ -62,15 +62,18 @@ class ToDoList extends Component {
       value: this.state.name,
       status: false,
     };
-    this.setState(
-      {
-        items: [...this.state.items, newItem],
-      },
-      () => {
-        let updatedItems = [...this.state.items];
-        window.localStorage.setItem("items", JSON.stringify(updatedItems));
-      }
-    );
+
+    if (this.state.items)
+      this.setState(
+        {
+          items: [...this.state.items, newItem],
+        },
+        () => {
+          let updatedItems = [...this.state.items];
+          window.localStorage.setItem("items", JSON.stringify(updatedItems));
+        }
+      );
+    else this.setState({ items: [newItem] });
   }
 
   //Handling Submit

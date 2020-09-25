@@ -142,6 +142,7 @@ class ToDoList extends Component {
           },
           () => {
             document.getElementById("add").click();
+            this.setState({ name: result });
           }
         );
       };
@@ -160,6 +161,7 @@ class ToDoList extends Component {
           this.setState({
             error: "Something went Wrong , Try Again",
           });
+        this.setState({ name: "" });
       };
     }
   }
@@ -223,6 +225,7 @@ class ToDoList extends Component {
                 </button>
                 <input
                   name="name"
+                  id="text-input"
                   className="col-8 col-sm-9 col-lg-10 col-xl-10"
                   placeholder="Enter a ToDo"
                   onChange={this.handleChange}

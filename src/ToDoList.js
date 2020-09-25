@@ -172,7 +172,7 @@ class ToDoList extends Component {
   //Rendering
 
   render() {
-    const filteredList = this.filter();
+    const filteredList = this.filter() || [];
     const list = filteredList.map((item) => (
       <ToDoItem
         key={item.id}

@@ -156,7 +156,7 @@ class ToDoList extends Component {
       recognition.onend = (e) => {
         console.log("Recognition has Ended");
         this.setState({ message: "", isListening: false });
-        if (!this.state.error)
+        if (!this.state.name)
           this.setState({
             error: "Something went Wrong , Try Again",
           });

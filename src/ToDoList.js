@@ -84,9 +84,11 @@ class ToDoList extends Component {
     // Adding a to-do only if it is valid
     if (this.state.name) {
       this.add();
+      this.setState({ error: "" });
+    } else {
+      this.setState({ error: "Please Enter Valid ToDo" });
     }
     //Resetting the input field
-
     this.setState({ name: "" });
   }
   //Filtering
@@ -105,9 +107,7 @@ class ToDoList extends Component {
       default:
         list = [];
     }
-    if (!list) {
-      this.setState({ error: `This list is Empty` });
-    }
+
     return list;
   };
 
@@ -172,8 +172,7 @@ class ToDoList extends Component {
   //Rendering
 
   render() {
-    const filteredList = this.filter() || [];
-    //console.log(filteredList);
+    const filteredList = this.filter();
     const list = filteredList.map((item) => (
       <ToDoItem
         key={item.id}
@@ -208,6 +207,14 @@ class ToDoList extends Component {
             <div className="errors row my-3 mx-auto">
               <div className="col alert alert-danger mx-auto my-auto">
                 <h6 className="my-auto">{this.state.error}</h6>
+              </div>
+            </div>
+          )}
+
+          {!list.length && this.state.filter !== "all" && (
+            <div className="errors row my-3 mx-auto">
+              <div className="col alert alert-success mx-auto my-auto">
+                <h6 className="my-auto">This List is Empty</h6>
               </div>
             </div>
           )}

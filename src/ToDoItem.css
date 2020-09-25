@@ -78,6 +78,7 @@ div.ToDoItem::after {
   left: 0;
   bottom: 50%;
   height: 2px;
+  opacity: 0.5;
   width: 0%;
   background-color: black;
   pointer-events: none;

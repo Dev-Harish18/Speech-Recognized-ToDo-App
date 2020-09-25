@@ -193,7 +193,7 @@ class ToDoList extends Component {
           {/* Messages */}
           {this.state.message && (
             <div className="messages row my-3 mx-auto">
-              <div className="col alert alert-danger mx-auto my-auto">
+              <div className="col alert alert-success mx-auto my-auto">
                 <h6 className="my-auto">{this.state.message}</h6>
               </div>
             </div>

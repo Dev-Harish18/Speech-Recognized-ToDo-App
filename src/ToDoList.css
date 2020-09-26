@@ -13,13 +13,30 @@
   text-align: center;
   font-size: 1.2rem;
 }
+.undo-txt {
+  color: #02f29b;
+}
+
+.btn.undo {
+  outline: none;
+  border: 2px solid #02f29b;
+  padding: 8px 16px;
+  background-color: #1a2224;
+  color: #02f29b;
+  transition: all 0.5s ease;
+}
+.btn.undo:hover,
+.btn.undo:focus {
+  background-color: #02f29b;
+  color: #1a2224;
+}
 #name {
   border: none;
   outline: none;
   position: relative;
 }
 .ToDoList form #name,
-.ToDoList form button:not(.tick):not(.trash) {
+.ToDoList form button:not(.tick):not(.trash):not(.undo) {
   background-color: #1a2224;
   color: #02f29b;
   padding: 1rem;
@@ -85,6 +102,7 @@
 .listen {
   animation: blink 0.8s linear infinite alternate;
 }
+
 @keyframes blink {
   0% {
     background-color: #1a2224;

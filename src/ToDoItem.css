@@ -77,10 +77,10 @@ div.ToDoItem::after {
   position: absolute;
   left: 0;
   bottom: 50%;
-  height: 2px;
+  height: 3px;
   opacity: 0.5;
   width: 0%;
-  background-color: black;
+  background-color: white;
   pointer-events: none;
 }
 .done.ToDoItem {
@@ -94,11 +94,11 @@ div.ToDoItem::after {
   position: absolute;
   right: 0;
   bottom: 50%;
-  height: 2px;
+  height: 3px;
   width: 100%;
   transition: all 0.5s ease;
   /* animation: fill 1s ease; */
-  background-color: black;
+  background-color: white;
   pointer-events: none;
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ToDoItem from "./ToDoItem";
 import { v4 as uuid } from "uuid";
 import "./ToDoList.css";
+let timer;
 
 class ToDoList extends Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class ToDoList extends Component {
       filter: "all",
       message: "",
       error: "",
+      deleted: undefined,
+      undoDisplaying: false,
       isListening: false,
     };
     this.remove = this.remove.bind(this);
@@ -28,8 +31,24 @@ class ToDoList extends Component {
     });
   }
 
+  //Undo the deletion
+  undo = () => {
+    if (timer) clearInterval();
+    this.setState(
+      {
+        name: this.state.deleted[1],
+        deleted: undefined,
+        undoDisplaying: false,
+      },
+      () => {
+        document.getElementById("add").click();
+      }
+    );
+  };
   // Removing a ToDoItem
   remove(id) {
+    if (timer) clearInterval(timer);
+
     this.setState(
       {
         items: this.state.items.filter((item) => item.id !== id),
@@ -39,6 +58,16 @@ class ToDoList extends Component {
         window.localStorage.setItem("items", JSON.stringify(updatedItems));
       }
     );
+    const deleted = this.state.items.filter((item) => item.id === id);
+    console.log(deleted.id, typeof deleted);
+    this.setState({
+      deleted: [deleted[0].id, deleted[0].value],
+      undoDisplaying: true,
+    });
+
+    timer = setTimeout(() => {
+      this.setState({ undoDisplaying: false });
+    }, 5000);
   }
 
   // Marking as completed
@@ -90,6 +119,7 @@ class ToDoList extends Component {
     }
     //Resetting the input field
     this.setState({ name: "" });
+    document.getElementById("name").focus();
   }
   //Filtering
   filter = () => {
@@ -200,6 +230,22 @@ class ToDoList extends Component {
               <div className="col alert alert-success mx-auto my-auto">
                 <h6 className="my-auto">{this.state.message}</h6>
               </div>
+            </div>
+          )}
+          {this.state.undoDisplaying && (
+            <div
+              id="undo-msg"
+              className="row d-flex align-items-center flex-nowrap my-5 mx-auto"
+            >
+              <h5 className="my-auto undo-txt">Want to undo the Delete?</h5>
+
+              <button
+                onClick={this.undo}
+                type="button"
+                className="btn undo ml-4"
+              >
+                Undo
+              </button>
             </div>
           )}
           {/* Errors */}
